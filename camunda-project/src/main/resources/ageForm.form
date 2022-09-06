@@ -1,0 +1,25 @@
+{
+  "components": [
+    {
+      "label": "age",
+      "type": "textfield",
+      "id": "Field_18poy8b",
+      "key": "AgeInput",
+      "description": "age enter",
+      "defaultValue": "16",
+      "properties": {},
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "ageForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.2.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.15.0",
+  "schemaVersion": 4
+}
