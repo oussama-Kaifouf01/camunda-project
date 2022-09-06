@@ -3,10 +3,9 @@
   <bpmn:process id="AgeProcess4" name="AgeProcess3" isExecutable="true">
     <bpmn:sequenceFlow id="Flow_0q9jpf4" sourceRef="msgRecieveUser" targetRef="Activity_0kziten" />
     <bpmn:endEvent id="Event_0vexjqe">
-      <bpmn:incoming>Flow_1duxw0j</bpmn:incoming>
+      <bpmn:incoming>Flow_0cp1bo7</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1duxw0j" sourceRef="Activity_186v088" targetRef="Event_0vexjqe" />
-    <bpmn:sequenceFlow id="Flow_0cp1bo7" sourceRef="Activity_0kziten" targetRef="Activity_186v088" />
+    <bpmn:sequenceFlow id="Flow_0cp1bo7" sourceRef="Activity_0kziten" targetRef="Event_0vexjqe" />
     <bpmn:startEvent id="msgRecieveUser" name="msgRecieveUser">
       <bpmn:extensionElements>
         <camunda:formData>
@@ -21,10 +20,6 @@
       <bpmn:incoming>Flow_0q9jpf4</bpmn:incoming>
       <bpmn:outgoing>Flow_0cp1bo7</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:task id="Activity_186v088" name="Store in database">
-      <bpmn:incoming>Flow_0cp1bo7</bpmn:incoming>
-      <bpmn:outgoing>Flow_1duxw0j</bpmn:outgoing>
-    </bpmn:task>
   </bpmn:process>
   <bpmn:message id="Message_362hqpb" name="msgRecieveUser" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -33,13 +28,9 @@
         <di:waypoint x="258" y="120" />
         <di:waypoint x="450" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1duxw0j_di" bpmnElement="Flow_1duxw0j">
-        <di:waypoint x="830" y="120" />
-        <di:waypoint x="982" y="120" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0cp1bo7_di" bpmnElement="Flow_0cp1bo7">
         <di:waypoint x="550" y="120" />
-        <di:waypoint x="730" y="120" />
+        <di:waypoint x="982" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_0vexjqe_di" bpmnElement="Event_0vexjqe">
         <dc:Bounds x="982" y="102" width="36" height="36" />
@@ -47,9 +38,6 @@
       <bpmndi:BPMNShape id="Activity_02qr6be_di" bpmnElement="Activity_0kziten">
         <dc:Bounds x="450" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0eow8i3_di" bpmnElement="Activity_186v088">
-        <dc:Bounds x="730" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0pnnhm8_di" bpmnElement="msgRecieveUser">
         <dc:Bounds x="222" y="102" width="36" height="36" />
