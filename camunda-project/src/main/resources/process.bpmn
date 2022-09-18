@@ -3,9 +3,9 @@
   <bpmn:process id="AgeProcess4" name="AgeProcess3" isExecutable="true">
     <bpmn:sequenceFlow id="Flow_0q9jpf4" sourceRef="msgRecieveUser" targetRef="Activity_0kziten" />
     <bpmn:endEvent id="Event_0vexjqe">
-      <bpmn:incoming>Flow_0cp1bo7</bpmn:incoming>
+      <bpmn:incoming>Flow_0pzzz9a</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0cp1bo7" sourceRef="Activity_0kziten" targetRef="Event_0vexjqe" />
+    <bpmn:sequenceFlow id="Flow_0cp1bo7" sourceRef="Activity_0kziten" targetRef="videoGameInput" />
     <bpmn:startEvent id="msgRecieveUser" name="msgRecieveUser">
       <bpmn:extensionElements>
         <camunda:formData>
@@ -20,30 +20,58 @@
       <bpmn:incoming>Flow_0q9jpf4</bpmn:incoming>
       <bpmn:outgoing>Flow_0cp1bo7</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0pzzz9a" sourceRef="SaveIntoDB" targetRef="Event_0vexjqe" />
+    <bpmn:sequenceFlow id="Flow_0bjld94" sourceRef="videoGameInput" targetRef="SaveIntoDB" />
+    <bpmn:userTask id="videoGameInput" name="ask for video game">
+      <bpmn:incoming>Flow_0cp1bo7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0bjld94</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="SaveIntoDB" name="SaveIntoDB" camunda:class="com.example.workflow.Camunda.GatewayEvents.LoggerDelegate">
+      <bpmn:incoming>Flow_0bjld94</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pzzz9a</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmn:message id="Message_362hqpb" name="msgRecieveUser" />
+  <bpmn:message id="Message_1uedfea" name="Message_1uedfea" />
+  <bpmn:message id="Message_0f0b6i6" />
+  <bpmn:message id="Message_3sbf500" name="recievVideoGame" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="AgeProcess4">
+      <bpmndi:BPMNEdge id="Flow_0cp1bo7_di" bpmnElement="Flow_0cp1bo7">
+        <di:waypoint x="480" y="120" />
+        <di:waypoint x="610" y="120" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0q9jpf4_di" bpmnElement="Flow_0q9jpf4">
         <di:waypoint x="258" y="120" />
-        <di:waypoint x="450" y="120" />
+        <di:waypoint x="380" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0cp1bo7_di" bpmnElement="Flow_0cp1bo7">
-        <di:waypoint x="550" y="120" />
+      <bpmndi:BPMNEdge id="Flow_0pzzz9a_di" bpmnElement="Flow_0pzzz9a">
+        <di:waypoint x="910" y="120" />
         <di:waypoint x="982" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bjld94_di" bpmnElement="Flow_0bjld94">
+        <di:waypoint x="710" y="120" />
+        <di:waypoint x="810" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_0vexjqe_di" bpmnElement="Event_0vexjqe">
         <dc:Bounds x="982" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_02qr6be_di" bpmnElement="Activity_0kziten">
-        <dc:Bounds x="450" y="80" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0pnnhm8_di" bpmnElement="msgRecieveUser">
         <dc:Bounds x="222" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="201" y="145" width="86" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02qr6be_di" bpmnElement="Activity_0kziten">
+        <dc:Bounds x="380" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12jax5h_di" bpmnElement="videoGameInput">
+        <dc:Bounds x="610" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_048jdfq_di" bpmnElement="SaveIntoDB">
+        <dc:Bounds x="810" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

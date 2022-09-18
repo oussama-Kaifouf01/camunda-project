@@ -16,7 +16,8 @@ public class User {
 
     private long age;
 
-    private boolean canEnter;
+    private boolean adult;
+    private String videoGame;
 
     public int getId() {
         return id;
@@ -42,11 +43,19 @@ public class User {
         this.age = age;
     }
 
-    public boolean isCanEnter() {
-        return canEnter;
+    public boolean isAdult() {
+        return adult;
     }
 
-    public void setCanEnter(boolean canEnter) {
-        this.canEnter = canEnter;
+    public void setAdult(boolean canEnter) {
+        this.adult = canEnter;
+    }
+
+    public String getVideoGame() {
+        return videoGame;
+    }
+
+    public void setVideoGame(String videoGame) {
+        this.videoGame = videoGame;
     }
 }

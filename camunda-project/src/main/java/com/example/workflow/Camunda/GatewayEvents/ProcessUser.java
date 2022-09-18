@@ -12,21 +12,17 @@ public class ProcessUser implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) throws Exception
     {
         ////Getting Data
-
-        Long    age  = (Long) delegateExecution.getVariable("age");
-
-        boolean canEnter=false;
+        Long age = (Long) delegateExecution.getVariable("age");
+        boolean adult=false;
         ////Processing data
-        if (age < 18) {
-            canEnter = false;
+        if (age >= 18) {
+            adult = true;
         }
-        else if (age >= 18) {
-            canEnter = true;
+        else if (age < 18) {
+            adult = false;
         }
-        delegateExecution.setVariable("canEnter",canEnter);
 
-        LOGGER.info(String.valueOf(age));
-        LOGGER.info(String.valueOf(canEnter));
+        delegateExecution.setVariable("adult",adult);
 
     }
 }
